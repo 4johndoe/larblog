@@ -9,9 +9,6 @@ class Category extends Model
 {
     use Sluggable;
 
-    /**
-     * @return array
-     */
     public function sluggable()
     {
         return [
