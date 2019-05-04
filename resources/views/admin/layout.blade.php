@@ -356,7 +356,7 @@
                 </li>
                 <li>
                     <a href="{{ route('categories.index') }}">
-                        <i class="fa fa-th"></i> <span>Categories</span>
+                        <i class="fa fa-th"></i> <span>Категории</span>
 {{--                        <span class="pull-right-container">--}}
 {{--                            <small class="label pull-right bg-green">new</small>--}}
 {{--                        </span>--}}
@@ -364,7 +364,15 @@
                 </li>
                 <li>
                     <a href="{{ route('tags.index') }}">
-                        <i class="fa fa-th"></i> <span>Tags</span>
+                        <i class="fa fa-th"></i> <span>Теги</span>
+                        {{--                        <span class="pull-right-container">--}}
+                        {{--                            <small class="label pull-right bg-green">new</small>--}}
+                        {{--                        </span>--}}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('users.index') }}">
+                        <i class="fa fa-th"></i> <span>Пользователи</span>
                         {{--                        <span class="pull-right-container">--}}
                         {{--                            <small class="label pull-right bg-green">new</small>--}}
                         {{--                        </span>--}}
