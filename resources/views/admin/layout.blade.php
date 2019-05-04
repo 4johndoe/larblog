@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,16 @@
 
     <link rel="stylesheet" href="/css/admin.css">
 
+    <style>
+        table.table form { display: inline-block; }
+        button.delete {
+            background: transparent;
+            border: none;
+            color: #337ab7;
+            padding: 0px;
+        }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,7 +27,8 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -137,7 +148,8 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
+                                            may not fit into the
                                             page and may cause design problems
                                         </a>
                                     </li>
@@ -180,7 +192,9 @@
                                                 <small class="pull-right">20%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">20% Complete</span>
                                                 </div>
                                             </div>
@@ -194,7 +208,9 @@
                                                 <small class="pull-right">40%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">40% Complete</span>
                                                 </div>
                                             </div>
@@ -208,7 +224,9 @@
                                                 <small class="pull-right">60%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">60% Complete</span>
                                                 </div>
                                             </div>
@@ -222,7 +240,9 @@
                                                 <small class="pull-right">80%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">80% Complete</span>
                                                 </div>
                                             </div>
@@ -314,17 +334,33 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+{{--                <li class="treeview">--}}
+{{--                    <a href="{{ url('admin') }}">--}}
+{{--                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>--}}
+{{--                        <span class="pull-right-container">--}}
+{{--                            <i class="fa fa-angle-left pull-right"></i>--}}
+{{--                        </span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="treeview-menu">--}}
+{{--                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>--}}
+{{--                        <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+                <li>
+                    <a href="{{ url('admin') }}">
+                        <i class="fa fa-th"></i> <span>Dashboard</span>
+                        {{--                        <span class="pull-right-container">--}}
+                        {{--                            <small class="label pull-right bg-green">new</small>--}}
+                        {{--                        </span>--}}
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('categories.index') }}">
+                        <i class="fa fa-th"></i> <span>Categories</span>
+{{--                        <span class="pull-right-container">--}}
+{{--                            <small class="label pull-right bg-green">new</small>--}}
+{{--                        </span>--}}
+                    </a>
                 </li>
                 <li class="treeview">
                     <a href="#">
@@ -338,15 +374,16 @@
                         <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
                         <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                         <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                        <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                        <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
                     <a href="../widgets.html">
                         <i class="fa fa-th"></i> <span>Widgets</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+                            <small class="label pull-right bg-green">new</small>
+                        </span>
                     </a>
                 </li>
                 <li class="treeview">
@@ -389,7 +426,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                        <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i> General Elements</a>
+                        </li>
                         <li><a href="advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
                         <li><a href="editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
                     </ul>
@@ -490,6 +528,7 @@
     <!-- Content Wrapper. Contains page content -->
     @yield('content')
     <!-- /.content-wrapper -->
+
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.4.0
@@ -695,5 +734,19 @@
 <!-- ./wrapper -->
 
 <script src="/js/admin.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>
 </body>
 </html>
