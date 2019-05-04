@@ -57,7 +57,7 @@
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
+{{--                            <span class="label label-success">4</span>--}}
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">You have 4 messages</li>
@@ -134,7 +134,7 @@
                     <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
+{{--                            <span class="label label-warning">10</span>--}}
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">You have 10 notifications</li>
@@ -178,7 +178,7 @@
                     <li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
+{{--                            <span class="label label-danger">9</span>--}}
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">You have 9 tasks</li>
@@ -360,6 +360,14 @@
 {{--                        <span class="pull-right-container">--}}
 {{--                            <small class="label pull-right bg-green">new</small>--}}
 {{--                        </span>--}}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('tags.index') }}">
+                        <i class="fa fa-th"></i> <span>Tags</span>
+                        {{--                        <span class="pull-right-container">--}}
+                        {{--                            <small class="label pull-right bg-green">new</small>--}}
+                        {{--                        </span>--}}
                     </a>
                 </li>
                 <li class="treeview">

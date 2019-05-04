@@ -30,26 +30,27 @@
 
                         <div class="box-body">
                             <div class="form-group">
-                                <a href="{{ route('categories.create') }}" class="btn btn-success">Добавить</a>
+                                <a href="{{ route('tags.create') }}" class="btn btn-success">Добавить</a>
                             </div>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
+                                    <th>Slug</th>
                                     <th>Действия</th>
-{{--                                    <th>Engine version</th>--}}
 {{--                                    <th>CSS grade</th>--}}
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category)
+                                @foreach($tags as $tag)
                                     <tr>
-                                        <td>{{ $category->id }}</td>
-                                        <td>{{ $category->title }}</td>
+                                        <td>{{ $tag->id }}</td>
+                                        <td>{{ $tag->title }}</td>
+                                        <td>{{ $tag->slug }}</td>
                                         <td>
-                                            <a href="{{ route('categories.edit', $category) }}" class="fa fa-pencil"></a>
-                                            <form action="{{ route('categories.destroy', $category) }}" method="POST">
+                                            <a href="{{ route('tags.edit', $tag) }}" class="fa fa-pencil"></a>
+                                            <form action="{{ route('tags.destroy', $tag) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button onclick="return confirm('вы уверенны?');" type="submit" class="delete">
@@ -57,7 +58,6 @@
                                                 </button>
                                             </form>
                                         </td>
-{{--                                        <td> 4</td>--}}
 {{--                                        <td>X</td>--}}
                                     </tr>
                                 @endforeach
@@ -66,8 +66,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
+                                    <th>Slug</th>
                                     <th>Действия</th>
-{{--                                    <th>Engine version</th>--}}
 {{--                                    <th>CSS grade</th>--}}
                                 </tr>
                                 </tfoot>

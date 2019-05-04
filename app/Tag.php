@@ -9,6 +9,18 @@ class Tag extends Model
 {
     use Sluggable;
 
+    protected $fillable = ['title'];
+
+    public function posts()
+    {
+        return $this->belongsToMany(
+            Post::class,
+            'post_tags',
+            'tag_id',
+            'post_id'
+        );
+    }
+
     /**
      * @return array
      */
@@ -19,15 +31,5 @@ class Tag extends Model
                 'source' => 'title'
             ]
         ];
-    }
-
-    public function posts()
-    {
-        return $this->belongsToMany(
-            Post::class,
-            'post_tags',
-            'tag_id',
-            'post_id'
-        );
     }
 }
