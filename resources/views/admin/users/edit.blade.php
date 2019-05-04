@@ -24,16 +24,40 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{ route('users.update', $user) }}" method="POST" accept-charset="UTF-8">
+                <form action="{{ route('users.update', $user) }}" method="POST"
+                      accept-charset="UTF-8" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="box-body">
-                        <div class="form-group {!! ($errors->has('title')) ? 'has-error' : '' !!}">
-                            <label for="exampleInputEmail1">Название</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="title"
-                                   name="title" value="{{ old('title', $user->title) }}">
-                            @if ($errors->has('title'))
-                                <span class="help-block">{{ $errors->first('title') }}</span>
+                        <div class="form-group {!! ($errors->has('name')) ? 'has-error' : '' !!}">
+                            <label for="exampleInputEmail1">Имя</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder=""
+                                   name="name" value="{{ old('name', $user->name) }}">
+                            @if ($errors->has('name'))
+                                <span class="help-block">{{ $errors->first('name') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group {!! ($errors->has('email')) ? 'has-error' : '' !!}">
+                            <label for="exampleInputEmail1">Почта</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder=""
+                                   name="email" value="{{ old('email', $user->email) }}">
+                            @if ($errors->has('email'))
+                                <span class="help-block">{{ $errors->first('email') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group {!! ($errors->has('password')) ? 'has-error' : '' !!}">
+                            <label for="exampleInputEmail1">Пароль</label>
+                            <input type="password" class="form-control" id="exampleInputEmail1" placeholder="" name="password">
+                            @if ($errors->has('password'))
+                                <span class="help-block">{{ $errors->first('password') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group {!! ($errors->has('avatar')) ? 'has-error' : '' !!}">
+                            <img src="{{ $user->getImage() }}" alt="" width="200" class="img-responsive">
+                            <label for="exampleInputEmail1">Аватар</label>
+                            <input type="file" class="form-control" id="exampleInputEmail1" placeholder="" name="avatar">
+                            @if ($errors->has('avatar'))
+                                <span class="help-block">{{ $errors->first('avatar') }}</span>
                             @endif
                         </div>
                     </div>

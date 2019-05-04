@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -32,42 +33,40 @@ class UsersController extends Controller
         ]);
 
         $user = User::add($request->all());
+        $user->generatePassword(request()->get('password'));
         $user->uploadAvatar(request()->file('avatar'));
 
         return redirect()->route('users.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
-        //
+        return view('admin.users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, User $user)
     {
-        //
+//        dd(request()->all());
+//        dd(request()->file('avatar'));
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => [
+                'required','email', Rule::unique('users')->ignore($user->id),
+            ],
+            'avatar' => 'nullable|image',
+        ]);
+
+        $user->edit($request->all());
+        $user->generatePassword($request->get('password'));
+        $user->uploadAvatar(request()->file('avatar'));
+
+        return redirect()->route('users.index')->with('success', 'успешно обновлено');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(User $user)
     {
-        //
+        $user->remove();
+
+        return  redirect()->route('users.index')->with('success', 'успешно удалено');
     }
 }

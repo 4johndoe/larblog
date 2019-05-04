@@ -52,7 +52,8 @@
                         </div>
                         <div class="form-group {!! ($errors->has('avatar')) ? 'has-error' : '' !!}">
                             <label for="exampleInputEmail1">Аватар</label>
-                            <input type="file" class="form-control" id="exampleInputEmail1" placeholder="" name="avatar">
+                            <input type="file" class="form-control" id="exampleInputEmail1" placeholder=""
+                                   name="avatar" value="{{ old('avatar') }}">
                             @if ($errors->has('avatar'))
                                 <span class="help-block">{{ $errors->first('avatar') }}</span>
                             @endif
