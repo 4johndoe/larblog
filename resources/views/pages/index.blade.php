@@ -16,65 +16,7 @@
 
         <div class="faq margin-bottom--large">
 
-            <div class="faq__menu">
-                <ul class="faq-menu">
-                    <li>
-                        <div class="faq-menu__category analytics--tab router-link-active">
-                            <div>
-                                <i class="analytics-icon0"></i>
-                            </div>
-
-                            <a href="https://next.gerchikco.com/analytics/fundamental">
-                                <span>fundamental</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="faq-menu__category analytics--tab ">
-                            <div>
-                                <i class="analytics-icon1"></i>
-                            </div>
-
-                            <a href="https://next.gerchikco.com/analytics/technical">
-                                <span>technical</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="faq-menu__category analytics--tab ">
-                            <div>
-                                <i class="analytics-icon2"></i>
-                            </div>
-
-                            <a href="https://next.gerchikco.com/analytics/funds">
-                                <span>funds</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="faq-menu__category analytics--tab ">
-                            <div>
-                                <i class="analytics-icon3"></i>
-                            </div>
-
-                            <a href="https://next.gerchikco.com/analytics/crypto">
-                                <span>crypto</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="faq-menu__category analytics--tab ">
-                            <div>
-                                <i class="analytics-icon4"></i>
-                            </div>
-
-                            <a href="https://next.gerchikco.com/analytics/oil">
-                                <span>oil</span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            @include('pages._categories')
 
             <div class="faq__answers">
                 <div class="sort-icons sort-icons--absolute">
@@ -93,7 +35,9 @@
                                     {{ $post->getDate() }}
                                 </div>
                                 <div class="text-title text-title--small">
-                                    {{ $post->category->title }}
+                                    @if($post->hasCategory())
+                                        {{ $post->getCategoryTitle() }}
+                                    @endif
                                 </div>
                                 <p class="p-title no-margin-bottom p-title--small">
                                     {!! $post->description !!}

@@ -12,7 +12,9 @@
                     <div class="analytics-title margin-bottom">
                         <div class="analytics-title__text">
                             <div class="text-title page-text--title text-title--small no-margin-bottom">
-                                {{ $post->getCategoryTitle() }}
+                                @if($post->hasCategory())
+                                    {{ $post->getCategoryTitle() }}
+                                @endif
                             </div>
                         </div>
 
@@ -38,7 +40,7 @@
 
                     <div class="decoration">
                         @foreach($post->tags as $tag)
-                            <a href="#">#{{ $tag->title }}</a>
+                            <a href="{{ route('tag.show', $tag->slug) }}">#{{ $tag->title }}</a>
                         @endforeach
                     </div>
 
