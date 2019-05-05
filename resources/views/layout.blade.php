@@ -94,6 +94,13 @@
                 <li>
                     <a href='/blog/articles' class="sv-click"><b>Блог</b></a>
                 </li>
+                @if(Auth::check())
+                    <li><a href="/profile">Профиль</a></li>
+                    <li><a href="/logout">Выход</a></li>
+                @else
+                    <li><a href="/login">Вход</a></li>
+                    <li><a href="/register">Регистрация</a></li>
+                @endif
             </ul>
 
 

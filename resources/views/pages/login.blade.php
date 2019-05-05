@@ -5,19 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
+                    @include('admin._partials.flash')
                     <div class="leave-comment mr0">
                         <h3 class="text-uppercase">Login</h3>
                         <br>
                         <form action="/login" class="form-horizontal contact-form" method="post">
                             @csrf
-{{--                            <div class="form-group {!! ($errors->has('name')) ? 'has-error' : '' !!}">--}}
-{{--                                <label for="exampleInputEmail1">Name</label>--}}
-{{--                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder=""--}}
-{{--                                       name="name" value="{{ old('name') }}">--}}
-{{--                                @if ($errors->has('name'))--}}
-{{--                                    <span class="help-block">{{ $errors->first('name') }}</span>--}}
-{{--                                @endif--}}
-{{--                            </div>--}}
+
                             <div class="form-group {!! ($errors->has('email')) ? 'has-error' : '' !!}">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder=""
