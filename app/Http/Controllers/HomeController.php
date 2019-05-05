@@ -12,9 +12,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::paginate(2);
-        $categories = Category::all();
 
-        return view('pages.index', compact('posts', 'categories'));
+        return view('pages.index', compact('posts','categories'));
     }
 
     public function show($slug)
@@ -26,7 +25,6 @@ class HomeController extends Controller
 
     public function tag($slug)
     {
-        $categories = Category::all();
         $tag = Tag::where('slug', $slug)->firstOrFail();
         $posts = $tag->posts()->paginate(2);
 
@@ -35,7 +33,6 @@ class HomeController extends Controller
 
     public function category($slug)
     {
-        $categories = Category::all();
         $category = Category::where('slug', $slug)->firstOrFail();
         $posts = $category->posts()->paginate(2);
 

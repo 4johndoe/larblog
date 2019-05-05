@@ -8,7 +8,7 @@
                     </div>
 
                     <a href="{{ route('category.show', $category->slug) }}">
-                        <span>{{ $category->title }}</span>
+                        <span>{{ $category->title }} {{ $category->posts()->count() }}</span>
                     </a>
                 </div>
             </li>
