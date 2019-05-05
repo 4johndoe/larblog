@@ -48,9 +48,9 @@
                             <select class="form-control select2" style="width: 100%;" name="category_id">
                                 @foreach($categories as $id => $title)
                                     <option value="{{ $id }}"
-                                    @if($id == old('category_id'))
-                                        selected="selected"
-                                    @endif
+                                            @if($id == old('category_id'))
+                                                selected="selected"
+                                            @endif
                                     >{{ $title }}</option>
                                 @endforeach
                             </select>
@@ -83,20 +83,29 @@
                         <!-- checkbox -->
                         <div class="form-group">
                             <label>
-                                <input type="checkbox" class="" name="is_featured">
-                            </label>
-                            <label>
+                                <input type="checkbox" class="" name="is_featured" {{ old('is_featured') == 'on' ? 'checked' : '' }}>
+                                {{--                            </label>--}}
+                                {{--                            <label>--}}
                                 Рекомендовать
                             </label>
                         </div>
                         <!-- checkbox -->
                         <div class="form-group">
                             <label>
-                                <input type="checkbox" class="" name="status">
-                            </label>
-                            <label>
+                                <input type="checkbox" class="" name="status" {{ old('status') == 'on' ? 'checked' : '' }}>
+                                {{--                            </label>--}}
+                                {{--                            <label>--}}
                                 Черновик
                             </label>
+                        </div>
+                        <div class="form-group {!! ($errors->has('description')) ? 'has-error' : '' !!}">
+                            <label for="exampleInputEmail1">Описание</label>
+                            <textarea class="form-control" id="" cols="30" rows="10" name="description">
+                                {{ old('description') }}
+                            </textarea>
+                            @if ($errors->has('description'))
+                                <span class="help-block">{{ $errors->first('description') }}</span>
+                            @endif
                         </div>
                         <div class="form-group {!! ($errors->has('content')) ? 'has-error' : '' !!}">
                             <label for="exampleInputEmail1">Полный текст</label>
@@ -107,7 +116,6 @@
                                 <span class="help-block">{{ $errors->first('content') }}</span>
                             @endif
                         </div>
-
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

@@ -60,8 +60,12 @@ mix.scripts([
     'resources/admin/dist/js/adminlte.min.js',
     'resources/admin/dist/js/pages/dashboard.js',
     'resources/admin/dist/js/demo.js',
+    'resources/admin/bower_components/ckeditor/ckeditor.js',
+    'resources/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
 ], 'public/js/admin.js');
 
 mix.copy('resources/admin/dist/fonts', 'public/fonts');
 mix.copy('resources/admin/bower_components/Ionicons/fonts/', 'public/fonts');
 mix.copy('resources/admin/dist/img', 'public/img');
+mix.copy('resources/admin/plugins/ckeditor', 'public/plugins/ckeditor');
+mix.copy('resources/admin/plugins/ckfinder', 'public/plugins/ckfinder');
