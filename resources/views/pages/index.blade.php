@@ -85,7 +85,7 @@
                 <div class="posts">
                     @foreach($posts as $post)
                         <div class="posts__block">
-                            <a href="https://next.gerchikco.com/analytics/fundamental/4" class="post webinar--post">
+                            <a href="{{ route('post.show', $post->slug) }}" class="post webinar--post">
                                 <div class="post__image">
                                     <img src="{{ $post->getImage() }}" alt="" width="200">
                                 </div>
