@@ -97,6 +97,9 @@
                 @if(Auth::check())
                     <li><a href="/profile">Профиль</a></li>
                     <li><a href="/logout">Выход</a></li>
+                    @if(Auth::user()->is_admin)
+                        <li><a href="/admin">Admin</a></li>
+                    @endif
                 @else
                     <li><a href="/login">Вход</a></li>
                     <li><a href="/register">Регистрация</a></li>

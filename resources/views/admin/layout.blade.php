@@ -564,7 +564,7 @@
     $(function () {
         //Initialize Select2 Elements
         $('.select2').select2();
-        $('#tags').val([{!! substr($selectedTags, 1, -1) !!}]).change();
+        $('#tags').val([{!! (!empty($selectedTags)) ? substr($selectedTags, 1, -1) : '' !!}]).change();
 
         //Datemask dd/mm/yyyy
         $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
