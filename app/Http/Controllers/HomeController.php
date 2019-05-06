@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $posts = Post::paginate(2);
 
-        return view('pages.index', compact('posts','categories'));
+        return view('pages.index', compact('posts'));
     }
 
     public function show($slug)
@@ -28,7 +28,7 @@ class HomeController extends Controller
         $tag = Tag::where('slug', $slug)->firstOrFail();
         $posts = $tag->posts()->paginate(2);
 
-        return view('pages.list', compact('posts', 'categories'));
+        return view('pages.list', compact('posts'));
     }
 
     public function category($slug)
@@ -36,6 +36,6 @@ class HomeController extends Controller
         $category = Category::where('slug', $slug)->firstOrFail();
         $posts = $category->posts()->paginate(2);
 
-        return view('pages.list', compact('posts', 'categories'));
+        return view('pages.list', compact('posts'));
     }
 }

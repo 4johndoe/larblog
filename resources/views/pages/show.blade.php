@@ -44,6 +44,10 @@
                                     @endforeach
                                 </div>
 
+                                <div class="author">
+                                    <span>By {{ $post->author->name }} at {{ $post->getDate() }}</span>
+                                </div>
+
                                 <div class="button-center button-center--open-account">
                                     <a href="#" class="button button--blue">Перейти в Личный кабинет</a>
                                 </div>
@@ -125,41 +129,43 @@
                         </div>
                     </div>
 
-                    <div class="text-title text-title--center margin-bottom">
-                        КОММЕНТИРОВАТЬ
-                    </div>
-
-                    <div class="contacts-feedback margin-bottom--last contacts-feedback--form">
-                        <div class="contacts-feedback__block">
-                            <form method="post" class="feedback-form">
-                                <div class="feedback-form__line">
-                                    <div class="label">
-                                        <input type="text" placeholder="Имя*">
-                                        <div class="error-message">
-                                            Необходимо заполнить
-                                        </div>
-                                    </div>
-
-                                    <div class="label">
-                                        <input type="text" placeholder="E-mail*">
-                                        <div class="error-message">
-                                            Необходимо заполнить
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="label">
-                                    <textarea name="test" placeholder="Сообщение"></textarea>
-                                </div>
-
-                                <div class="label feedback-form--button">
-                                    <button class="button button--blue button--download button--download-pdf">
-                                        Отправить
-                                    </button>
-                                </div>
-                            </form>
+                    @if(Auth::check())
+                        <div class="text-title text-title--center margin-bottom">
+                            КОММЕНТИРОВАТЬ
                         </div>
-                    </div>
+
+                        <div class="contacts-feedback margin-bottom--last contacts-feedback--form">
+                            <div class="contacts-feedback__block">
+                                <form method="post" class="feedback-form">
+                                    <div class="feedback-form__line">
+                                        <div class="label">
+                                            <input type="text" placeholder="Имя*">
+                                            <div class="error-message">
+                                                Необходимо заполнить
+                                            </div>
+                                        </div>
+
+                                        <div class="label">
+                                            <input type="text" placeholder="E-mail*">
+                                            <div class="error-message">
+                                                Необходимо заполнить
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="label">
+                                        <textarea name="test" placeholder="Сообщение"></textarea>
+                                    </div>
+
+                                    <div class="label feedback-form--button">
+                                        <button class="button button--blue button--download button--download-pdf">
+                                            Отправить
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <!-- Content (end) -->
             </div>
