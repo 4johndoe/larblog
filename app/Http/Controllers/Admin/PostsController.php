@@ -50,7 +50,7 @@ class PostsController extends Controller
     {
         $categories = Category::pluck('title', 'id')->all();
         $tags = Tag::pluck('title', 'id')->all();
-        $selectedTags = $post->tags->pluck('id')->all();
+        $selectedTags = $post->tags->pluck('id')->toJson();
 
         return view('admin.posts.edit', compact('post', 'categories', 'tags', 'selectedTags'));
     }

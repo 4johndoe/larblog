@@ -563,9 +563,8 @@
 <script>
     $(function () {
         //Initialize Select2 Elements
-        $('.select2').select2()
-{{--        {!! dd($selectedTags) !!}--}}
-//         $('#tags').select2(val).trigger('change')
+        $('.select2').select2();
+        $('#tags').val([{!! substr($selectedTags, 1, -1) !!}]).change();
 
         //Datemask dd/mm/yyyy
         $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
