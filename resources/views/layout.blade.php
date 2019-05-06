@@ -243,7 +243,7 @@
             </div>
         </div>
 
-        <!-- Content (start) -->
+    <!-- Content (start) -->
 
         @yield('content')
 

@@ -97,7 +97,7 @@
                             <label>
                                 <input type="checkbox" class="" name="status"
                                         {{ old('status', $post->status) == 1 ? 'checked' : '' }}>
-                                Черновик
+                                Опубликован
                             </label>
                         </div>
                         <div class="form-group {!! ($errors->has('description')) ? 'has-error' : '' !!}">

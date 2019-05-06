@@ -24,4 +24,9 @@ class Category extends Model
             ]
         ];
     }
+
+    public function getPostsCount()
+    {
+        return self::posts()->where('status', Post::IS_PUBLIC)->count();
+    }
 }

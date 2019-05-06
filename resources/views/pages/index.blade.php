@@ -5,6 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
+
+                @include('admin._partials.flash')
+
                 <div class="page-content content--center no-padding-bottom">
                     <div class="page-text no-margin-bottom">
                         <div class="page-text__block acctypes-show-more">

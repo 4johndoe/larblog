@@ -6,6 +6,9 @@
             <div class="col-md-9">
                 <!-- Content (start) -->
                 <div class="page-content content--center no-padding-bottom">
+
+                    @include('admin._partials.flash')
+
                     <div class="faq margin-bottom--large">
                         <div class="faq__answers all--width">
                             <div class="post-open margin-bottom--large">
@@ -115,17 +118,30 @@
                                 </div>
                             </div>
 
-                            <div class="text-title page-text--title margin-bottom">
-                                КОММЕНТАРИИ
-                            </div>
-
-                            <div class="comment-block margin-bottom">
-                                <div class="comment-block__title no-margin-bottom">
-                                    Сергей Котенко
+                            @if(!$post->getComments()->isEmpty())
+                                <div class="text-title page-text--title margin-bottom">
+                                    КОММЕНТАРИИ
                                 </div>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>
+                                @foreach($post->getComments() as $comment)
+                                    <div class="comment-block margin-bottom">
+                                        <div class="comment-block__title no-margin-bottom">
+                                            <img src="{{ $comment->author->getImage() }}" alt="" width="30">
+                                            {{ $comment->author->name }}
+                                        </div>
+
+                                        <p class="comment-text">
+                                            {{ $comment->text }}
+                                        </p>
+
+                                        <p class="comment-date">
+                                            {{ $comment->created_at->diffForHumans() }}
+                                        </p>
+
+                                    </div>
+                                @endforeach
+
+                            @endif
                         </div>
                     </div>
 
@@ -136,17 +152,20 @@
 
                         <div class="contacts-feedback margin-bottom--last contacts-feedback--form">
                             <div class="contacts-feedback__block">
-                                <form method="post" class="feedback-form">
+                                <form method="post" class="feedback-form" action="/comment">
+                                    @csrf
+
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
                                     <div class="feedback-form__line">
                                         <div class="label">
-                                            <input type="text" placeholder="Имя*">
+                                            <input type="text" placeholder="Имя*" name="name">
                                             <div class="error-message">
                                                 Необходимо заполнить
                                             </div>
                                         </div>
 
                                         <div class="label">
-                                            <input type="text" placeholder="E-mail*">
+                                            <input type="email" placeholder="E-mail*" name="email">
                                             <div class="error-message">
                                                 Необходимо заполнить
                                             </div>
@@ -154,7 +173,7 @@
                                     </div>
 
                                     <div class="label">
-                                        <textarea name="test" placeholder="Сообщение"></textarea>
+                                        <textarea name="message" placeholder="Сообщение"></textarea>
                                     </div>
 
                                     <div class="label feedback-form--button">

@@ -30,6 +30,16 @@
         </a>
     </li>
     <li>
+        <a href="{{ route('comments.index') }}">
+            <i class="fa fa-th"></i> <span>Комментарии</span>
+            @if($newCommetnsCount)
+                <span class="pull-right-container">
+                    <small class="label pull-right bg-green">{{ $newCommetnsCount }}</small>
+                </span>
+            @endif
+        </a>
+    </li>
+    <li>
         <a href="{{ route('categories.index') }}">
             <i class="fa fa-th"></i> <span>Категории</span>
             {{--                        <span class="pull-right-container">--}}
@@ -48,6 +58,14 @@
     <li>
         <a href="{{ route('users.index') }}">
             <i class="fa fa-th"></i> <span>Пользователи</span>
+            {{--                        <span class="pull-right-container">--}}
+            {{--                            <small class="label pull-right bg-green">new</small>--}}
+            {{--                        </span>--}}
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('subscribers.index') }}">
+            <i class="fa fa-th"></i> <span>Подписчики</span>
             {{--                        <span class="pull-right-container">--}}
             {{--                            <small class="label pull-right bg-green">new</small>--}}
             {{--                        </span>--}}
